@@ -59,7 +59,7 @@ jobs:
                      python setup.py build_ext'
           sudo chown -R "$USER:$USER" cbc_dist/ 2>/dev/null || true
           tar -czf cbc_dist_generic.tar.gz cbc_dist/
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         with:
           name: cbc-dist-linux-arm64-generic
           path: cbc_dist_generic.tar.gz
@@ -90,7 +90,7 @@ jobs:
                      bash scripts/build_mip_debug_cuts.sh cbc_dist_debug Cbc'
           sudo chown -R "$USER:$USER" cbc_dist_debug/ 2>/dev/null || true
           tar -czf cbc_dist_debug.tar.gz cbc_dist_debug/
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         with:
           name: cbc-dist-linux-arm64-debug
           path: cbc_dist_debug.tar.gz
@@ -130,13 +130,13 @@ jobs:
           package-dir: .
           output-dir: wheelhouse
           config-file: "{package}/pyproject.toml"
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         with:
           name: cibw-wheels-Linux-ARM64
           path: ./wheelhouse/*.whl
       - name: Upload performance report
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: perf-report-linux-arm64
           path: |
@@ -144,7 +144,7 @@ jobs:
             wheelhouse/perf_report.json
       - name: Upload mip-debug-cuts diagnostic reports
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: mip-debug-cuts-reports-linux-arm64
           path: wheelhouse/mip_debug_cuts_reports/*.log
@@ -168,7 +168,7 @@ jobs:
           CBCBOX_BUILD_ONLY: "1"
         run: python setup.py build_ext
       - run: tar -czf cbc_dist_generic.tar.gz cbc_dist/
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         with:
           name: cbc-dist-macos-arm64-generic
           path: cbc_dist_generic.tar.gz
@@ -191,7 +191,7 @@ jobs:
       - name: Build mip-debug-cuts diagnostic tool
         run: bash scripts/build_mip_debug_cuts.sh cbc_dist_debug Cbc
       - run: tar -czf cbc_dist_debug.tar.gz cbc_dist_debug/
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         with:
           name: cbc-dist-macos-arm64-debug
           path: cbc_dist_debug.tar.gz
@@ -227,13 +227,13 @@ jobs:
           package-dir: .
           output-dir: wheelhouse
           config-file: "{package}/pyproject.toml"
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         with:
           name: cibw-wheels-macOS-ARM64
           path: ./wheelhouse/*.whl
       - name: Upload performance report
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: perf-report-macos-arm64
           path: |
@@ -241,7 +241,7 @@ jobs:
             tests/perf_report.json
       - name: Upload mip-debug-cuts diagnostic reports
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: mip-debug-cuts-reports-macos-arm64
           path: tests/mip_debug_cuts_reports/*.log
@@ -277,7 +277,7 @@ jobs:
                      python setup.py build_ext'
           sudo chown -R "$USER:$USER" cbc_dist/ 2>/dev/null || true
           tar -czf cbc_dist_generic.tar.gz cbc_dist/
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         with:
           name: cbc-dist-linux-x64-generic
           path: cbc_dist_generic.tar.gz
@@ -307,7 +307,7 @@ jobs:
                      python setup.py build_ext'
           sudo chown -R "$USER:$USER" cbc_dist_avx2/ 2>/dev/null || true
           tar -czf cbc_dist_avx2.tar.gz cbc_dist_avx2/
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         with:
           name: cbc-dist-linux-x64-avx2
           path: cbc_dist_avx2.tar.gz
@@ -338,7 +338,7 @@ jobs:
                      bash scripts/build_mip_debug_cuts.sh cbc_dist_debug_avx2 Cbc'
           sudo chown -R "$USER:$USER" cbc_dist_debug_avx2/ 2>/dev/null || true
           tar -czf cbc_dist_debug_avx2.tar.gz cbc_dist_debug_avx2/
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         with:
           name: cbc-dist-linux-x64-debug
           path: cbc_dist_debug_avx2.tar.gz
@@ -383,13 +383,13 @@ jobs:
           package-dir: .
           output-dir: wheelhouse
           config-file: "{package}/pyproject.toml"
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         with:
           name: cibw-wheels-Linux-X64
           path: ./wheelhouse/*.whl
       - name: Upload performance report
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: perf-report-ubuntu-latest-x86_64
           path: |
@@ -397,7 +397,7 @@ jobs:
             wheelhouse/perf_report.json
       - name: Upload mip-debug-cuts diagnostic reports
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: mip-debug-cuts-reports-linux-x64
           path: wheelhouse/mip_debug_cuts_reports/*.log
@@ -421,7 +421,7 @@ jobs:
           CBCBOX_BUILD_ONLY: "1"
         run: python setup.py build_ext
       - run: tar -czf cbc_dist_generic.tar.gz cbc_dist/
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         with:
           name: cbc-dist-macos-intel-generic
           path: cbc_dist_generic.tar.gz
@@ -442,7 +442,7 @@ jobs:
           CBCBOX_BUILD_ONLY: "1"
         run: python setup.py build_ext
       - run: tar -czf cbc_dist_avx2.tar.gz cbc_dist_avx2/
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         with:
           name: cbc-dist-macos-intel-avx2
           path: cbc_dist_avx2.tar.gz
@@ -465,7 +465,7 @@ jobs:
       - name: Build mip-debug-cuts diagnostic tool
         run: bash scripts/build_mip_debug_cuts.sh cbc_dist_debug_avx2 Cbc
       - run: tar -czf cbc_dist_debug_avx2.tar.gz cbc_dist_debug_avx2/
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         with:
           name: cbc-dist-macos-intel-debug
           path: cbc_dist_debug_avx2.tar.gz
@@ -506,13 +506,13 @@ jobs:
           package-dir: .
           output-dir: wheelhouse
           config-file: "{package}/pyproject.toml"
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         with:
           name: cibw-wheels-macOS-X64
           path: ./wheelhouse/*.whl
       - name: Upload performance report
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: perf-report-macos-15-intel-x86_64
           path: |
@@ -520,7 +520,7 @@ jobs:
             tests/perf_report.json
       - name: Upload mip-debug-cuts diagnostic reports
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: mip-debug-cuts-reports-macos-intel
           path: tests/mip_debug_cuts_reports/*.log
@@ -553,7 +553,7 @@ jobs:
         run: python setup.py build_ext
       - run: tar -czf cbc_dist_generic.tar.gz cbc_dist/
         shell: bash
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         with:
           name: cbc-dist-windows-generic
           path: cbc_dist_generic.tar.gz
@@ -583,7 +583,7 @@ jobs:
         run: python setup.py build_ext
       - run: tar -czf cbc_dist_avx2.tar.gz cbc_dist_avx2/
         shell: bash
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         with:
           name: cbc-dist-windows-avx2
           path: cbc_dist_avx2.tar.gz
@@ -619,7 +619,7 @@ jobs:
           bash scripts/build_mip_debug_cuts.sh cbc_dist_debug_avx2 Cbc
       - run: tar -czf cbc_dist_debug_avx2.tar.gz cbc_dist_debug_avx2/
         shell: bash
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         with:
           name: cbc-dist-windows-debug
           path: cbc_dist_debug_avx2.tar.gz
@@ -651,7 +651,7 @@ jobs:
         run: python setup.py build_ext
       - run: tar -czf cbc_dist_release_symbols.tar.gz cbc_dist/
         shell: bash
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         with:
           name: cbc-dist-windows-release-symbols
           path: cbc_dist_release_symbols.tar.gz
@@ -684,7 +684,7 @@ jobs:
         run: |
           python scripts/pytest_style_repro.py cbc_dist/bin/cbc.exe tests sprint_hidden06_j air03 nw04 nursesched-sprint02 pk1 mas76 eil33-2 fiber markshare_4_0 irp qap10 > subprocess_repro.log 2>&1
           Get-Content subprocess_repro.log
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         with:
           name: windows-crash-repro-subprocess-log
           path: subprocess_repro.log
@@ -722,7 +722,7 @@ jobs:
           cat "$SUMMARY"
       - name: Upload crash repro reports
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: windows-crash-repro-reports
           path: crash_repro_reports/*
@@ -784,7 +784,7 @@ jobs:
           $cbc_bin = Join-Path $cbcbox_dir "cbc_dist\bin\cbc.exe"
           python scripts/pytest_style_repro.py $cbc_bin tests sprint_hidden06_j air03 nw04 nursesched-sprint02 pk1 mas76 eil33-2 fiber markshare_4_0 irp qap10 > installed_subprocess_repro.log 2>&1
           Get-Content installed_subprocess_repro.log
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         with:
           name: windows-installed-wheel-subprocess-log
           path: installed_subprocess_repro.log
@@ -823,14 +823,14 @@ jobs:
         run: |
           pip install pytest
           pytest tests/ -v -k "sprint_hidden06_j or air03 or nw04 or nursesched-sprint02 or pk1 or mas76 or eil33-2 or fiber or markshare_4_0 or irp or qap10" | Tee-Object -FilePath installed_pytest_repro.log
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         if: always()
         with:
           name: windows-installed-wheel-pytest-log
           path: installed_pytest_repro.log
       - name: Upload installed-wheel crash reports
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: windows-installed-wheel-crash-reports
           path: installed_wheel_crash_reports/*
@@ -897,7 +897,7 @@ jobs:
           package-dir: .
           output-dir: wheelhouse
           config-file: "{package}/pyproject.toml"
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         with:
           name: cibw-wheels-Windows-AMD64
           path: ./wheelhouse/*.whl
@@ -914,14 +914,14 @@ jobs:
           }
       - name: Upload WER crash dumps (if any)
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: windows-package-crash-dumps
           path: crash_dumps/*.dmp
           if-no-files-found: ignore
       - name: Upload performance report
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: perf-report-windows-latest-AMD64
           path: |
@@ -929,7 +929,7 @@ jobs:
             tests/perf_report.json
       - name: Upload mip-debug-cuts diagnostic reports
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: mip-debug-cuts-reports-windows
           path: tests/mip_debug_cuts_reports/*.log
@@ -969,7 +969,7 @@ jobs:
         run: python3 .github/scripts/generate_perf_plots.py perf_reports docs/perf_avx2_speedup.png README.md
 
       - name: Upload combined report
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: perf-report-combined
           path: perf_report_combined.md
