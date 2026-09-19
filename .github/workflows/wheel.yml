@@ -39,7 +39,7 @@ jobs:
     if: github.event.inputs.windows_only != 'true'
     runs-on: ubuntu-24.04-arm
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - name: Build generic binary (manylinux2014_aarch64)
         run: |
           for i in 1 2 3; do
@@ -69,7 +69,7 @@ jobs:
     if: github.event.inputs.windows_only != 'true'
     runs-on: ubuntu-24.04-arm
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - name: Build debug binary (manylinux_2_28_aarch64)
         run: |
           for i in 1 2 3; do
@@ -101,7 +101,7 @@ jobs:
     needs: [compile-linux-arm64-generic, compile-linux-arm64-debug]
     runs-on: ubuntu-24.04-arm
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - uses: actions/download-artifact@v4
         with:
           name: cbc-dist-linux-arm64-generic
@@ -157,7 +157,7 @@ jobs:
     if: github.event.inputs.windows_only != 'true'
     runs-on: macos-15
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - name: Install gfortran if needed
         run: which gfortran || brew install gcc
       - name: Install Python build deps
@@ -178,7 +178,7 @@ jobs:
     if: github.event.inputs.windows_only != 'true'
     runs-on: macos-15
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - name: Install gfortran if needed
         run: which gfortran || brew install gcc
       - name: Install Python build deps
@@ -202,7 +202,7 @@ jobs:
     needs: [compile-macos-arm64-generic, compile-macos-arm64-debug]
     runs-on: macos-15
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - uses: actions/download-artifact@v4
         with:
           name: cbc-dist-macos-arm64-generic
@@ -257,7 +257,7 @@ jobs:
     if: github.event.inputs.windows_only != 'true'
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - name: Build generic binary (manylinux2014)
         run: |
           for i in 1 2 3; do
@@ -287,7 +287,7 @@ jobs:
     if: github.event.inputs.windows_only != 'true'
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - name: Build AVX2 binary (manylinux2014)
         run: |
           for i in 1 2 3; do
@@ -317,7 +317,7 @@ jobs:
     if: github.event.inputs.windows_only != 'true'
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - name: Build debug AVX2 binary (manylinux_2_28_x86_64)
         run: |
           for i in 1 2 3; do
@@ -349,7 +349,7 @@ jobs:
     needs: [compile-linux-x64-generic, compile-linux-x64-avx2, compile-linux-x64-debug]
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - uses: actions/download-artifact@v4
         with:
           name: cbc-dist-linux-x64-generic
@@ -410,7 +410,7 @@ jobs:
     if: github.event.inputs.windows_only != 'true'
     runs-on: macos-15-intel
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - name: Install gfortran if needed
         run: which gfortran || brew install gcc
       - name: Install Python build deps
@@ -431,7 +431,7 @@ jobs:
     if: github.event.inputs.windows_only != 'true'
     runs-on: macos-15-intel
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - name: Install gfortran if needed
         run: which gfortran || brew install gcc
       - name: Install Python build deps
@@ -452,7 +452,7 @@ jobs:
     if: github.event.inputs.windows_only != 'true'
     runs-on: macos-15-intel
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - name: Install gfortran if needed
         run: which gfortran || brew install gcc
       - name: Install Python build deps
@@ -476,7 +476,7 @@ jobs:
     needs: [compile-macos-intel-generic, compile-macos-intel-avx2, compile-macos-intel-debug]
     runs-on: macos-15-intel
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - uses: actions/download-artifact@v4
         with:
           name: cbc-dist-macos-intel-generic
@@ -532,7 +532,7 @@ jobs:
     name: Compile Windows generic
     runs-on: windows-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - name: Set up MSYS2 toolchain
         shell: C:\msys64\usr\bin\bash.exe -l {0}
         run: |
@@ -562,7 +562,7 @@ jobs:
     name: Compile Windows AVX2
     runs-on: windows-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - name: Set up MSYS2 toolchain
         shell: C:\msys64\usr\bin\bash.exe -l {0}
         run: |
@@ -592,7 +592,7 @@ jobs:
     name: Compile Windows debug+AVX2
     runs-on: windows-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - name: Set up MSYS2 toolchain
         shell: C:\msys64\usr\bin\bash.exe -l {0}
         run: |
@@ -629,7 +629,7 @@ jobs:
     if: github.event.inputs.crash_repro == 'true'
     runs-on: windows-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - name: Set up MSYS2 toolchain
         shell: C:\msys64\usr\bin\bash.exe -l {0}
         run: |
@@ -662,7 +662,7 @@ jobs:
     needs: [compile-windows-release-symbols]
     runs-on: windows-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - name: Set up MSYS2 toolchain
         shell: C:\msys64\usr\bin\bash.exe -l {0}
         run: |
@@ -734,7 +734,7 @@ jobs:
     needs: [compile-windows-generic, compile-windows-avx2, compile-windows-debug]
     runs-on: windows-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - name: Set up MSYS2 toolchain
         shell: C:\msys64\usr\bin\bash.exe -l {0}
         run: |
@@ -841,7 +841,7 @@ jobs:
     needs: [compile-windows-generic, compile-windows-avx2, compile-windows-debug]
     runs-on: windows-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - name: Set up MSYS2 toolchain
         shell: C:\msys64\usr\bin\bash.exe -l {0}
         run: |
@@ -951,7 +951,7 @@ jobs:
       contents: write
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
       - name: Download all performance reports
         uses: actions/download-artifact@v4
