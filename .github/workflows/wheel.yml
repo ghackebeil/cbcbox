@@ -113,7 +113,7 @@ jobs:
           path: .
       - run: tar -xzf cbc_dist_debug.tar.gz
       - name: Build and test wheel (compilation skipped — binaries pre-built)
-        uses: pypa/cibuildwheel@v3.3.1
+        uses: pypa/cibuildwheel@v4.3.1
         env:
           CIBW_BUILD: "cp313-*"
           CIBW_SKIP: "*musllinux*"
@@ -214,7 +214,7 @@ jobs:
           path: .
       - run: tar -xzf cbc_dist_debug.tar.gz
       - name: Build and test wheel (compilation skipped — binaries pre-built)
-        uses: pypa/cibuildwheel@v3.3.1
+        uses: pypa/cibuildwheel@v4.3.1
         env:
           CIBW_BUILD: "cp313-*"
           CIBW_ARCHS: "arm64"
@@ -366,7 +366,7 @@ jobs:
           path: .
       - run: tar -xzf cbc_dist_debug_avx2.tar.gz
       - name: Build and test wheel (compilation skipped — binaries pre-built)
-        uses: pypa/cibuildwheel@v3.3.1
+        uses: pypa/cibuildwheel@v4.3.1
         env:
           CIBW_BUILD: "cp313-*"
           CIBW_SKIP: "*musllinux*"
@@ -493,7 +493,7 @@ jobs:
           path: .
       - run: tar -xzf cbc_dist_debug_avx2.tar.gz
       - name: Build and test wheel (compilation skipped — binaries pre-built)
-        uses: pypa/cibuildwheel@v3.3.1
+        uses: pypa/cibuildwheel@v4.3.1
         env:
           CIBW_BUILD: "cp313-*"
           CIBW_ARCHS: "x86_64"
@@ -885,7 +885,7 @@ jobs:
           New-ItemProperty -Path $key -Name DumpCount -PropertyType DWord -Value 20 -Force | Out-Null
           New-Item -Path "$env:GITHUB_WORKSPACE\crash_dumps" -ItemType Directory -Force | Out-Null
       - name: Build and test wheel (compilation skipped — binaries pre-built)
-        uses: pypa/cibuildwheel@v3.3.1
+        uses: pypa/cibuildwheel@v4.3.1
         env:
           CIBW_BUILD: "cp313-*"
           CIBW_ARCHS: "AMD64"
